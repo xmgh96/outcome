@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grammar Of Becoming</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #dcd9d4;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            color: #c30d23;
+            margin-bottom: 10px;
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.3rem;
+            font-weight: 300;
+            margin-top: 10px;
+        }
+        
+        .video-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .video-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .main-video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+        
+        .main-video:hover {
+            transform: scale(1.01);
+        }
+        
+        .audio-gallery {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .audio-gallery h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .audio-item {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .audio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #c30d23;
+        }
+        
+        .audio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            background: #fff;
+        }
+        
+        .audio-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease;
+        }
+        
+        .audio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .audio-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+        
+        .audio-desc {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        audio {
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        
+        .playing {
+            background: #e6f4ff;
+            border: 2px solid #0497e4;
+            transform: scale(1.02);
+        }
+        
+        .playing::before {
+            background-color: #0497e4;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 25px;
+            color: #666;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .video-section, .audio-gallery {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>The Grammar Of Becoming</h1>
+            <p class="subtitle">Click the image to play the corresponding audio.</p>
+        </header>
+        
+        <section class="video-section">
+            <h2>Main Video</h2>
+            <video class="main-video" controls>
+                <source src="my-video.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+        </section>
+        
+        <section class="audio-gallery">
+            <h2>Audio Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Japan -->
+                <div class="audio-item" onclick="playAudio('audio1', this)">
+                    <img src="images/image1.jpg" alt="Japan">
+                    <div class="audio-title">Japan</div>
+                    <p class="audio-desc">From Chaos to Order</p>
+                    <audio id="audio1">
+                        <source src="audio/audio1.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- Germany -->
+                <div class="audio-item" onclick="playAudio('audio2', this)">
+                    <img src="images/image2.jpg" alt="Germany">
+                    <div class="audio-title">Germany</div>
+                    <p class="audio-desc">From Emotion to Reason</p>
+                    <audio id="audio2">
+                        <source src="audio/audio2.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- United States -->
+                <div class="audio-item" onclick="playAudio('audio3', this)">
+                    <img src="images/image3.jpg" alt="United States">
+                    <div class="audio-title">United States</div>
+                    <p class="audio-desc">From Periphery to Center</p>
+                    <audio id="audio3">
+                        <source src="audio/audio3.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- Britain -->
+                <div class="audio-item" onclick="playAudio('audio4', this)">
+                    <img src="images/image4.jpg" alt="Britain">
+                    <div class="audio-title">Britain</div>
+                    <p class="audio-desc">From Repression to Liberation</p>
+                    <audio id="audio4">
+                        <source src="audio/audio4.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- Ecuador -->
+                <div class="audio-item" onclick="playAudio('audio5', this)">
+                    <img src="images/image5.jpg" alt="Ecuador">
+                    <div class="audio-title">Ecuador</div>
+                    <p class="audio-desc">From Bustling to Profound</p>
+                    <audio id="audio5">
+                        <source src="audio/audio5.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- Italy -->
+                <div class="audio-item" onclick="playAudio('audio6', this)">
+                    <img src="images/image6.jpg" alt="Italy">
+                    <div class="audio-title">Italy</div>
+                    <p class="audio-desc">From Soft to Passion</p>
+                    <audio id="audio6">
+                        <source src="audio/audio6.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- Kenya -->
+                <div class="audio-item" onclick="playAudio('audio7', this)">
+                    <img src="images/image7.jpg" alt="Kenya">
+                    <div class="audio-title">Kenya</div>
+                    <p class="audio-desc">From Anxiety to Calm</p>
+                    <audio id="audio7">
+                        <source src="audio/audio7.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- Russia -->
+                <div class="audio-item" onclick="playAudio('audio8', this)">
+                    <img src="images/image8.jpg" alt="Russia">
+                    <div class="audio-title">Russia</div>
+                    <p class="audio-desc">From Hesitation to Boldness</p>
+                    <audio id="audio8">
+                        <source src="audio/audio8.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+                
+                <!-- Thailand -->
+                <div class="audio-item" onclick="playAudio('audio9', this)">
+                    <img src="images/image9.jpg" alt="Thailand">
+                    <div class="audio-title">Thailand</div>
+                    <p class="audio-desc">From Rigid to Fluid</p>
+                    <audio id="audio9">
+                        <source src="audio/audio9.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© XU SHIJIE</p>
+        </footer>
+    </div>
+
+    <script>
+        let currentAudio = null;
+        let currentItem = null;
+        
+        function playAudio(audioId, itemElement) {
+            const audio = document.getElementById(audioId);
+            
+            // 如果点击的是当前正在播放的音频
+            if (currentAudio === audio) {
+                if (audio.paused) {
+                    audio.play();
+                    itemElement.classList.add('playing');
+                } else {
+                    audio.pause();
+                    itemElement.classList.remove('playing');
+                }
+                return;
+            }
+            
+            // 停止当前播放的音频
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                currentItem.classList.remove('playing');
+            }
+            
+            // 播放新音频并添加高亮
+            audio.play();
+            itemElement.classList.add('playing');
+            
+            // 更新当前音频和项目
+            currentAudio = audio;
+            currentItem = itemElement;
+            
+            // 当音频播放结束时移除高亮
+            audio.onended = function() {
+                itemElement.classList.remove('playing');
+                currentAudio = null;
+                currentItem = null;
+            };
+        }
+    </script>
+</body>
+</html>
